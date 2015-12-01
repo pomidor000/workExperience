@@ -27,11 +27,11 @@ public class SessionStore {
         return this.session;
     }
 
-    public Object get(String key) {
+    public Object retrieve(String key) {
         return this.getSession().getAttribute(key);
     }
-   
-    public void put(String key, Object value) {
+    
+    public void store(String key, Object value) {
         this.getSession().setAttribute(key, value);
     }
 }
