@@ -18,11 +18,11 @@ import javax.faces.bean.SessionScoped;
  *
  * @author DLights
  */
-@ManagedBean( name="registerBean" )
+@ManagedBean(name = "registerBean")
 @SessionScoped
 
 public class WorkExperience implements Serializable {
-    
+
     private String email;
     private String password;
     private final SessionStore session = new SessionStore();
@@ -30,12 +30,15 @@ public class WorkExperience implements Serializable {
     public String getEmail() {
         return this.email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getPassword() {
         return "";
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -47,7 +50,7 @@ public class WorkExperience implements Serializable {
 
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (Exception ex) {
-            Logger.getLogger(WorkExperience.class.getName()).log(Level.SEVERE, null, ex); 
+            Logger.getLogger(WorkExperience.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -83,15 +86,26 @@ public class WorkExperience implements Serializable {
             saveRecord.setString(1, this.email);
             saveRecord.setString(2, stringHash);
             saveRecord.execute();
-
+            session.store("loginData", this.email);
         } finally {
             connection.close();
         }
     }
 
+    public boolean getLoginStatus() {
+        Object myLoginData = session.retrieve("loginData");
+        if (myLoginData != null) {
+            String myEmail = (String) myLoginData;
+            System.out.println("Hello " + myEmail + ",/nYou are logged in");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public String getGreetings() {
         String greeting = "";
-        
+
         return greeting;
     }
 }
