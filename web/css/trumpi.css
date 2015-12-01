@@ -1,0 +1,28 @@
+.centras{
+    width: 450px;
+    height: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-top: 15px; 
+    font-size: 17px;
+}
+input{
+    width: 270px;
+    height: 17px;
+    float: right;   
+    font-size: 13px;
+}
+.apacia{
+    width:100px;
+    height: 21px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+input.mygtukas{
+    width: 100px; 
+    height: 20px;
+    background-color: #4169E1;
+    color: white;
+}  
