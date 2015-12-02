@@ -1,5 +1,5 @@
 package ie.zenit.WorkingExperience;
-
+// package statement must be first, if we specify it
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -25,7 +25,7 @@ public class WorkExperience implements Serializable {
 
     private String email;
     private String password;
-    private final SessionStore session = new SessionStore();
+    private final SessionStore session = new SessionStore(); // private variables, only visible in the method, to be sure, we will not leak any data
 
     public String getEmail() {
         return this.email;
@@ -43,11 +43,11 @@ public class WorkExperience implements Serializable {
         this.password = password;
     }
 
-    public WorkExperience() {
+    public WorkExperience() { // constructor for this class is necessary, it is checking the connection with Mysql and html
         try {
             // it will show of the comments in glassfish server 
-            Logger.getLogger(WorkExperience.class.getName()).log(Level.INFO, "Registering of that crap");
-
+            Logger.getLogger(WorkExperience.class.getName()).log(Level.INFO, "Registering ...");
+            
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (Exception ex) {
             Logger.getLogger(WorkExperience.class.getName()).log(Level.SEVERE, null, ex);
@@ -64,9 +64,9 @@ public class WorkExperience implements Serializable {
         }
 
         if (digest == null) {
-            return; // we can ahndle an exception properly in here
+            return; // we can handle an exception properly in here
         }
-        byte[] hash = null;
+        byte[] hash = null; 
         try {
             hash = digest.digest(password.getBytes("UTF-8"));
         } catch (UnsupportedEncodingException ex) {
