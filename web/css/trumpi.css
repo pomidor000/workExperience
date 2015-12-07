@@ -25,6 +25,7 @@ input.mygtukas{
     height: 20px;
     background-color: #4169E1;
     color: white;
+    cursor: pointer;
 }  
 .pas{
     width: 450px;
@@ -35,4 +36,8 @@ input.mygtukas{
     margin-top: 15px; 
     font-size: 11px;
     cursor: pointer;
+}
+.logo{
+    text-align: center;
+    margin-top: 50px;
 }
