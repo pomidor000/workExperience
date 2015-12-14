@@ -22,8 +22,10 @@ public class CustomerBean implements Serializable {
     private String customerCounty;
     private byte amountTopUp;
     private byte topUpDate;
-    // private variables, only visible in the method, to be sure, we will not leak any data
-    private final SessionStore session = new SessionStore(); /* session variable, this variable is specified session variable to store the status of the session, 
+            //     private variables, only visible in the method,
+            //     to be sure, we will not leak any data 
+    private final SessionStore session = new SessionStore(); 
+    /* session variable, this variable is specified session variable to store the status of the session, 
      session checks if the employeee is logged in even if we work in html pages, and overclicking it, 
      this variable is     importatnt to set the customer logged on for all pages, without interaption*/
 
