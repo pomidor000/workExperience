@@ -1,4 +1,4 @@
-.virsus{
+.top{
     height: 35px;
     background-color: black;   
 }
@@ -35,19 +35,19 @@
     border-color: #4169E1;
     font-size: 11px;
 }
-.centras{
+.center{
     margin-top: 15px;
     width:auto;
     background-color: white;
     text-align: center;
 } 
-.pirmas{                
+.first{                
     margin-left: auto;
     margin-right: auto;
     width: 500px;
     height: 50px;
 }
-.vidus{
+.midle{
     width: 100%;
     height: 50%;
     font-size: 11px;
@@ -57,16 +57,16 @@ input{
     border: 1px solid #000; 
     margin-top: 2px;
 }
-fieldset.remas {
+fieldset.border {
     border: 1px solid black; 
 }
-.lentele{
+.table{
     margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
     width: 476px;              
 }
-.lentele div {
+.table div {
     font-size: 11px;
 }
 .skelti div {
@@ -79,12 +79,12 @@ fieldset.remas {
 select {
     width: 100%;
 }
-.pabaiga{
+.end{
     font-size: 11px;
     margin-top: 10px;
     width: 476px;
 }
-.pirmo3{
+.first3{
     display: table-cell;
     height: 100%;
     width: 48%;
@@ -92,18 +92,18 @@ select {
 fieldset div div {
     margin-bottom: 5px;
 }
-.apacia{
+.botom{
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
     float: left;
 }
-.juosta{
+.line{
     width: 504px;
     margin-left: auto;
     margin-right: auto;
 }
-input.mygtukas{
+input.buton{
     height: 25px;
     background-color: #4169E1;
     color: white;
