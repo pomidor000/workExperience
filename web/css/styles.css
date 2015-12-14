@@ -2,7 +2,7 @@
     height: 35px;
     background-color: black;   
 }
-.suport{
+.support{
     float:left;
     text-align: left;
     font-size: 11px;
@@ -47,7 +47,7 @@
     width: 500px;
     height: 50px;
 }
-.midle{
+.middle{
     width: 100%;
     height: 50%;
     font-size: 11px;
@@ -69,11 +69,11 @@ fieldset.border {
 .table div {
     font-size: 11px;
 }
-.skelti div {
+.split div {
     float: left;
     width: 48%;
 }
-.skelti div:last-child {
+.split div:last-child {
     float: right;
 }
 select {
@@ -92,7 +92,7 @@ select {
 fieldset div div {
     margin-bottom: 5px;
 }
-.botom{
+.bottom{
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
@@ -103,7 +103,7 @@ fieldset div div {
     margin-left: auto;
     margin-right: auto;
 }
-input.buton{
+input.button{
     height: 25px;
     background-color: #4169E1;
     color: white;

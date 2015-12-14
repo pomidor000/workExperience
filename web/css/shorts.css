@@ -13,7 +13,7 @@ input{
     float: right;   
     font-size: 13px;
 }
-.botom{
+.bottom{
     width:100px;
     height: 21px;
     margin-left: auto;
@@ -27,7 +27,7 @@ input.buton{
     color: white;
     cursor: pointer;
 }  
-.pas{
+.pass{
     width: 450px;
     height: 17px;
     margin-left: auto;
