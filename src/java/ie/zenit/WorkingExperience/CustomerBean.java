@@ -1,6 +1,13 @@
 package ie.zenit.WorkingExperience;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Named;
@@ -11,9 +18,9 @@ public class CustomerBean implements Serializable {
 
     private String mobile;
     private String nameOnCard;
-    private int cardNumber;
+    private String cardNumber;
     private String expiryMonth;
-    private int expiryYear;
+    private String expiryYear;
     private short CCV;
     private String customerName;
     private String customerSurname;
@@ -22,6 +29,7 @@ public class CustomerBean implements Serializable {
     private String customerCounty;
     private byte amountTopUp;
     private byte topUpDate;
+    private String provider;
             //     private variables, only visible in the method,
             //     to be sure, we will not leak any data 
     private final SessionStore session = new SessionStore(); 
@@ -47,11 +55,11 @@ public class CustomerBean implements Serializable {
         this.nameOnCard = name;
     }
 
-    public int getCardNumber() {
+    public String getCardNumber() {
         return this.cardNumber;
     }
 
-    public void setCardNumber(int name) {
+    public void setCardNumber(String name) {
         this.cardNumber = name;
     }
 
@@ -63,11 +71,11 @@ public class CustomerBean implements Serializable {
         this.expiryMonth = name;
     }
 
-    public int getExpiryYear() {
+    public String getExpiryYear() {
         return this.expiryYear;
     }
 
-    public void setExpiryYear(int name) {
+    public void setExpiryYear(String name) {
         this.expiryYear = name;
     }
 
@@ -157,5 +165,71 @@ public class CustomerBean implements Serializable {
             return false;
         }
     }
+    public Object Save() throws SQLException {
+
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("SHA-256"); // it is type of coding, which we use for password, to hide it and decrypted.
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(RegisterBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (digest == null) {
+            return "not signed in"; // we can handle an exception properly in here
+        }
+        byte[] hash = null;
+        
+        if (hash == null) {
+            return "not signed in"; // we can ahndle an exception properly in here
+        }
+        String stringHash = String.format("%064x", new java.math.BigInteger(1, hash));
+
+        String URL = "jdbc:mysql://localhost:3306/working_experience?user=root&password=password";
+        Connection connection = DriverManager.getConnection(URL, "root", "password"); 
+        // try of mysql connection, with username and password, individual for every mysql settings
+
+        try {
+            PreparedStatement saveRecord = connection.prepareStatement("INSERT INTO customersdata(mobile_phone, nameOnCard, card_nr, "
+                    + " expiry_month, expiry_year, CCV, name_on_card, customer_surname, customer_street, custmer_town, customer_county, "
+                    + "top_up_amount, top_up_date) VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,? ,? ,?, ?, ?, ?);");
+
+            saveRecord.setString(1, this.mobile);
+            saveRecord.setString(2, this.nameOnCard);
+            saveRecord.setString(3, this.cardNumber);
+            saveRecord.setString(4, this.expiryMonth);
+            saveRecord.setString(5, this.expiryYear);
+            saveRecord.setShort(6, this.CCV);
+            saveRecord.setString(7, this.customerName);
+            saveRecord.setString(8, this.customerSurname);
+            saveRecord.setString(9, this.customerStreet);
+            saveRecord.setString(10, this.customerTown);
+            saveRecord.setString(11, this.customerCounty);
+            saveRecord.setByte(12, this.amountTopUp);
+            saveRecord.setByte(13, this.topUpDate);
+            saveRecord.setString(14, this.provider);
+            saveRecord.execute();
+            session.store("mobile_phone", this.mobile);
+            session.store("name_on_card", this.nameOnCard);
+            session.store("card_nr", this.cardNumber);
+            session.store("expiry_month", this.expiryMonth);
+            session.store("expiry_year", this.expiryYear);
+            session.store("CCV", this.CCV);
+            session.store("customer_name", this.customerName);
+            session.store("customer_surname", this.customerSurname);
+            session.store("customer_street", this.customerStreet);
+            session.store("customer_town", this.customerTown);
+            session.store("customer_county", this.customerCounty);
+            session.store("top_up_amount", this.amountTopUp);
+            session.store("top_up_date", this.topUpDate);
+            session.store("provider", this.provider);
+            
+            
+        } catch (SQLException ex) {
+            return "register";
+        } finally {
+            connection.close();
+        }
+        return "database saved";
     
+    }
 }
