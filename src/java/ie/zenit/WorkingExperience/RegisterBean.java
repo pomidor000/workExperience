@@ -11,13 +11,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name = "registerBean")
 @SessionScoped
 
+@Named("registerBean")
 public class RegisterBean implements Serializable {
 
     private String email;
