@@ -3,12 +3,11 @@
     background-color: black;   
 }
 .support{
-    float:left;
-    text-align: left;
-    font-size: 11px;
     color: white;
-    margin-left: 10px;
-    margin-top: 12px;
+    font-size: 11px;
+    padding-top: 12px;
+    padding-left: 10px;
+    float: left;
 }
 .email{
     float: right;
