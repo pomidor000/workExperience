@@ -15,7 +15,6 @@ import javax.inject.Named;
 
 @SessionScoped
 @Named("customerBean")  
-
 public class CustomerBean implements Serializable {
 
     private String mobile;
