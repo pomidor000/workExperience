@@ -6,14 +6,11 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:inputText id = "emailInputText" required="true" 
-                             requiredMessage="Please Enter your email"
-                             value = "#{registerBean.email}">
-
+            <h:inputText value = "#{registerBean.email}">
             </h:inputText>
             <h:inputSecret redisplay="false"
                value="#{registerBean.password}" />
-            <h:commandButton value ="Update" action ="#{registerBean.save()}">
+            <h:commandButton value ="Update" action ="#{registerBean.Save()}">
             </h:commandButton>
             
         </h:form>

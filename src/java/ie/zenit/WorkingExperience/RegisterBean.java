@@ -11,20 +11,31 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
-@SessionScoped
-
-@Named("registerBean")
+//@SessionScoped
+@ManagedBean()
 public class RegisterBean implements Serializable {
 
     private String email;
     private String password;
     private final SessionStore session = new SessionStore(); // private variables, only visible in the method, to be sure, we will not leak any data
 
+    protected void Log(String text, Exception ex)
+    {
+        Logger.getLogger(RegisterBean.class.getName()).log(Level.ALL, text, ex);
+    }
+    
     public String getEmail() {
+        //return (this.email != "" ? this.email : "zvalas@gmail.com");
+        if (this.email == null)
+        {
+            return "zvalas@gmail.com";
+        }
+        
         return this.email;
     }
 
@@ -43,7 +54,7 @@ public class RegisterBean implements Serializable {
     public RegisterBean() { // constructor for this class is necessary, it is checking the connection with Mysql and html
         try {
             // it will show of the comments in glassfish server 
-            Logger.getLogger(RegisterBean.class.getName()).log(Level.INFO, "Registering ...");
+            Log("Registering ...", null);
 
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex)

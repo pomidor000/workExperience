@@ -8,44 +8,48 @@
     </h:head>
     <h:body>
         <div class="top">
-            <div class="left">
-                <p style="margin-left: 10px;">Customer Support Training</p>   
-            </div>
-            <div class="right">
-                <div class="first">
-                    E-mail 
-                </div>
-                <div class="second">
-                    <input class="logout" type="button" value="Log out"/>
-                </div>
-            </div>            
-        </div>
+            <div class="support">
+                Customer Support Training
+            </div>    
+            <div class="login">
+                <input class="logout" type="button" value="Log out"/>
+            </div> 
+            <div class="email">
+                E-mail
+            </div> 
+        </div>  
         <div style="clear: both"></div>
         <div class="center">
             <img src="images/emobile.jpg" width="100" height="72"/>
             <h1>Customer Details</h1>
-        </div>        
-        <div class="first">
-            <div class='middle'>
-                *Mobile number<br/>
-                <input type="number"/>
+        </div>  
+        <h:form>
+            <div class="first">
+                <div class="middle">
+                    *Mobile number<br/>
+                    <h:inputText value = "#{customerBean.email}"/>
+                </div>
             </div>
-        </div>
+        </h:form>
         <fieldset class="border table">
             <legend style="font-size: 12px">
                 <b>Credit card</b>
             </legend>
             <div>
                 <div style="margin-top: 5px">
-                    <label>
-                        *Name on card
-                        <input/>
-                    </label>
+                    <h:form>
+                        <label>
+                            *Name on card
+                            <h:inputText value = "#{customerBean.nameOnCard}"/>
+                        </label>
+                    </h:form>
                 </div>
                 <div>
-                    <label>*Number
-                        <input type="number"/>              
-                    </label>
+                    <h:form>
+                        <label>*Number
+                            <h:inputText value = "#{customerBean.cardNumber}"/>            
+                        </label>
+                    </h:form>
                 </div>
                 <div class="split">
                     <div>
@@ -85,10 +89,12 @@
                     </div>
                 </div>
                 <div>
-                    <label>
-                        *CCV code
-                        <input type="number"/>
-                    </label>
+                    <h:form>
+                        <label>
+                            *CCV code
+                            <h:inputText value = "#{customerBean.CCV}"/> 
+                        </label>
+                    </h:form>
                 </div>
             </div>  
         </fieldset>
@@ -99,31 +105,37 @@
             <div>
                 <div class="split">
                     <div>
-                        <label>
-                            *First name
-                            <input/>
-                        </label>
+                        <h:form>
+                            <label>
+                                *First name
+                                <h:inputText value = "#{customerBean.customerName}"/> 
+                            </label>
+                        </h:form>
                     </div>
                     <div>
-                        <label>
-                            *Last name
-                            <input/>
-                        </label>
+                        <h:form>
+                            <label>
+                                *Last name
+                                <h:inputText value = "#{customerBean.customerSurname}"/>
+                            </label>
+                        </h:form>
                     </div>
                 </div>
             </div> 
-            <div> 
-                <div>
-                    *Street<br/>                             
-                    <input/>
-                </div>  
-                <div>
-                    *Town<br/>
-                    <input/><br/>
+            <h:form>
+                <div> 
+                    <div>
+                        *Street<br/>                             
+                        <h:inputText value = "#{customerBean.customerStreet}"/>
+                    </div>  
+                    <div>
+                        *Town<br/>
+                        <h:inputText value = "#{customerBean.customerTown}"/>
+                    </div>
+                        *County
+                        <h:inputText value = "#{customerBean.customerCounty}"/>            
                 </div>
-                *County
-                <input/>                
-            </div>
+            </h:form>
         </fieldset>
         <fieldset class="border table">   
             <legend style="font-size: 12px">

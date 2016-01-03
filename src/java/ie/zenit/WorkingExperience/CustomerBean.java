@@ -10,10 +10,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 
+@SessionScoped
 @Named("customerBean")  
-
 public class CustomerBean implements Serializable {
 
     private String mobile;
