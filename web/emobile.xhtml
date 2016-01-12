@@ -20,7 +20,6 @@
                     E-mail
                 </div> 
             </div>  
-            <div style="clear: both"></div>
             <div class="center">
                 <img src="images/emobile.jpg" width="100" height="72"/>
                 <h1>Customer Details</h1>
@@ -68,19 +67,20 @@
                             </label>
                         </div>
                         <div>
-                            <label>*Expiry year
-                                <select style="margin-top: 2px;">
-                                    <option value="1">2016</option>
-                                    <option value="2">2017</option>
-                                    <option value="3">2018</option>
-                                    <option value="4">2019</option>
-                                    <option value="5">2020</option>
-                                    <option value="6">2021</option>
-                                    <option value="7">2022</option>
-                                    <option value="8">2023</option>
-                                    <option value="9">2024</option>
-                                    <option value="10">2025</option>
-                                </select>
+                            <label>
+                                *Expiry year
+                                <h:selectOneMenu style="margin-top: 2px;" value="#customerBean.ExpiryYear">
+                                    <f:selectItem itemValue="1" itemLabel="2016"/>
+                                    <f:selectItem itemValue="2" itemLabel="2017"/>
+                                    <f:selectItem itemValue="3" itemLabel="2018"/> 
+                                    <f:selectItem itemValue="4" itemLabel="2019"/>
+                                    <f:selectItem itemValue="5" itemLabel="2020"/>
+                                    <f:selectItem itemValue="6" itemLabel="2021"/>
+                                    <f:selectItem itemValue="7" itemLabel="2022"/>
+                                    <f:selectItem itemValue="8" itemLabel="2023"/>
+                                    <f:selectItem itemValue="9" itemLabel="2024"/>
+                                    <f:selectItem itemValue="10" itemLabel="2025"/>
+                                </h:selectOneMenu>
                             </label>
                         </div>
                     </div>
@@ -137,29 +137,29 @@
                 </div>
                 <div class="end">
                     <div>
-                        Amount per month
-                        <select style="margin-top: 2px;">
-                            <option value="1">5</option>
-                            <option value="2">10</option>
-                            <option value="3">15</option>
-                            <option value="4">20</option>
-                            <option value="5">25</option>
-                            <option value="6">30</option>
-                            <option value="7">35</option>
-                            <option value="8">40</option>
-                            <option value="9">45</option>
-                            <option value="10">50</option>
-                            <option value="11">55</option>
-                            <option value="12">60</option>
-                            <option value="13">65</option>
-                            <option value="14">70</option>
-                            <option value="15">75</option>
-                            <option value="16">80</option>
-                            <option value="17">85</option>
-                            <option value="18">90</option>
-                            <option value="19">95</option>
-                            <option value="20">100</option>
-                        </select>
+                        Amount per month4
+                        <h:selectOneMenu style="margin-top: 2px;" value="#customerBean.AmountTopUp">
+                            <f:selectItem itemValue="1" itemLabel="5"/>
+                            <f:selectItem itemValue="2" itemLabel="10"/>
+                            <f:selectItem itemValue="3" itemLabel="15"/> 
+                            <f:selectItem itemValue="4" itemLabel="20"/>
+                            <f:selectItem itemValue="5" itemLabel="25"/>
+                            <f:selectItem itemValue="6" itemLabel="30"/>
+                            <f:selectItem itemValue="7" itemLabel="35"/>
+                            <f:selectItem itemValue="8" itemLabel="40"/>
+                            <f:selectItem itemValue="9" itemLabel="45"/>
+                            <f:selectItem itemValue="10" itemLabel="50"/>
+                            <f:selectItem itemValue="11" itemLabel="55"/>
+                            <f:selectItem itemValue="12" itemLabel="60"/>
+                            <f:selectItem itemValue="13" itemLabel="65"/> 
+                            <f:selectItem itemValue="14" itemLabel="70"/>
+                            <f:selectItem itemValue="15" itemLabel="75"/>
+                            <f:selectItem itemValue="16" itemLabel="80"/>
+                            <f:selectItem itemValue="17" itemLabel="85"/>
+                            <f:selectItem itemValue="18" itemLabel="90"/>
+                            <f:selectItem itemValue="19" itemLabel="95"/>
+                            <f:selectItem itemValue="20" itemLabel="100"/>
+                        </h:selectOneMenu>                        
                     </div>
                     <div>
                         Top up date<br/>
