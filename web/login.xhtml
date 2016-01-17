@@ -1,31 +1,34 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cenit College</title>
         <link rel="stylesheet" type="text/css" href="css/shorts.css"/>        
     </h:head>
     <h:body>
-        <div class="center" style="margin-top: 100px; ">
-            <b>E-mail</b> 
-            <input/>
-        </div>
-        <div class="center">
-            <b>Yes, I have a password</b>
-            <input/>
-        </div>
-        <div class="pas">
-            Forgot my password<br/>
-        </div>
-        <div class="center" style="text-align: center; cursor: pointer;">
-            <b>No, I am a new customer</b>
-        </div>
-        <div class="botom">            
-            <input class="buton" type="button" value="Login"/>
-        </div>
-        <div class="logo">
-            <img src="images/cenit.png"/>
-        </div>
+        <h:form>
+            <div class="center" style="margin-top: 100px; ">
+                <b>E-mail</b> 
+                <h:inputText value = "#{registerBean.email}"/>
+            </div>
+            <div class="center">
+                <b>Yes, I have a password</b>
+                <h:inputText value = "#{customerBean.password}"/>
+            </div>
+            <div class="pass">
+                Forgot my password<br/>
+            </div>
+            <div class="center" style="text-align: center; cursor: pointer;">
+                <b>No, I am a new customer</b>
+            </div>
+            <div class="bottom">            
+                <input class="buton" type="button" value="Login"/>
+            </div>
+            <div class="logo">
+                <img src="images/cenit.png"/>
+            </div>
+        </h:form>
     </h:body>
 </html>
